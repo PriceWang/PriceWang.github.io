@@ -469,7 +469,7 @@ border-radius:2px;
 background:#d3d9de;
 }
 
-.life-card{
+.tic-tac-toe-card{
   margin-top:16px;
   background:#fff;
   border:1px solid #E8ECF1;
@@ -478,16 +478,19 @@ background:#d3d9de;
   padding:10px;
   text-align:center;
 }
-.life-card canvas{
+.tic-tac-toe-card canvas{
   width:100%;
   height:auto;
   aspect-ratio: 1;
   border-radius:2px;
   display:block;
-  cursor: pointer;  
+  cursor: pointer;
 }
-.life-card .life-legend{margin-top:6px;font-size:12px;color:#6F7F8A}
 
-@media (max-width: 1024px){
-  .life-card canvas{aspect-ratio: 16 / 10}
+@media (orientation: portrait){
+  .tic-tac-toe-card{ display:none !important; }
+}
+
+@include breakpoint(max-width $large){
+  .tic-tac-toe-card{ display:none !important; }
 }

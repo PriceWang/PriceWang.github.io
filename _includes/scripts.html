@@ -45,162 +45,182 @@
     clearTimeout(window.__hoverResizeTimer);
     window.__hoverResizeTimer = setTimeout(updateHoverClass, 150);
   });
+
   function initLife(){
-    var canvas = document.getElementById('life-canvas');
+    const canvas = document.getElementById('tic-tac-toe-canvas');
     if(!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const DPR = Math.min(window.devicePixelRatio||1, 2);
 
-    var ctx = canvas.getContext('2d');
-    var DPR = Math.min(window.devicePixelRatio || 1, 2);
-    var cell = 8, interval = 140;
-    var cols, rows, grid, next, timer=null, paused=false;
+    let cell=0, size=0, originX=0, originY=0;
+    const board = Array(9).fill(null); // null | 'X' | 'O'
+    let over=false, winCells=null;
 
-    function setupByContainer(){
-      var viewW = Math.floor(canvas.clientWidth);
-      var viewH = Math.floor(canvas.clientHeight);
-      if (!viewH || viewH < 120) viewH = 160;
+    function fit(){
+      const w = Math.floor(canvas.clientWidth || 240);
+      const h = Math.floor(canvas.clientHeight || w);
+      canvas.width  = w * DPR;
+      canvas.height = h * DPR;
+      ctx.setTransform(DPR,0,0,DPR,0,0);
 
-      canvas.width  = viewW * DPR;
-      canvas.height = viewH * DPR;
-      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-
-      cols = Math.max(5, Math.floor(viewW / cell));
-      rows = Math.max(5, Math.floor(viewH / cell));
-
-      grid = Array.from({length:rows},()=>Array(cols).fill(0));
-      next = Array.from({length:rows},()=>Array(cols).fill(0));
-      randomSeed(0.12); draw();
-    }
-
-    function randomSeed(p){
-      for(var r=0;r<rows;r++) for(var c=0;c<cols;c++)
-        grid[r][c] = Math.random() < p ? 1 : 0;
-    }
-
-    function neighbors(r,c){
-      var n=0;
-      for(var dr=-1;dr<=1;dr++){
-        for(var dc=-1;dc<=1;dc++){
-          if(dr===0 && dc===0) continue;
-          var rr=(r+dr+rows)%rows, cc=(c+dc+cols)%cols;
-          n+=grid[rr][cc];
-        }
-      }
-      return n;
-    }
-
-    function step(){
-      for(var r=0;r<rows;r++){
-        for(var c=0;c<cols;c++){
-          var n=neighbors(r,c), a=grid[r][c]===1;
-          next[r][c]=(a&&(n===2||n===3))||(!a&&n===3)?1:0;
-        }
-      }
-      var t=grid; grid=next; next=t;
-    }
-
-    var hoverCell = null;
-    function draw(){
-      var viewW = canvas.width / DPR, viewH = canvas.height / DPR;
-      ctx.clearRect(0,0,viewW,viewH);
-      ctx.fillStyle='#F7FAFD';
-      ctx.fillRect(0,0,viewW,viewH);
-
-      ctx.fillStyle='#4F7EA3';
-      for(var r=0;r<rows;r++){
-        for(var c=0;c<cols;c++){
-          if(grid[r][c]) ctx.fillRect(c*cell+1, r*cell+1, cell-2, cell-2);
-        }
-      }
-
-      if(hoverCell){
-        ctx.strokeStyle = 'rgba(79,126,163,.55)';
-        ctx.lineWidth = 1;
-        ctx.strokeRect(hoverCell.cx*cell+0.5, hoverCell.cy*cell+0.5, cell-1, cell-1);
-      }
-    }
-
-    function startLoop(){
-      if(timer) clearInterval(timer);
-      timer=setInterval(function(){ if(!paused){ step(); draw(); } }, interval);
-    }
-
-    setupByContainer();
-    startLoop();
-
-    var drawing=false, eraseMode=false;
-    var mobileMode = document.body.classList.contains('no-hover');
-
-    function canvasToCell(e){
-      var rect = canvas.getBoundingClientRect();
-      var x = (e.clientX - rect.left) / rect.width  * (canvas.width  / DPR);
-      var y = (e.clientY - rect.top ) / rect.height * (canvas.height / DPR);
-      var cx = Math.max(0, Math.min(cols-1, Math.floor(x / cell)));
-      var cy = Math.max(0, Math.min(rows-1, Math.floor(y / cell)));
-      return {cx, cy};
-    }
-
-    function plotAtCell(p){
-      if(eraseMode){ grid[p.cy][p.cx] = 0; }
-      else { grid[p.cy][p.cx] = 1; }
+      cell = Math.floor(Math.min(w,h) / 3);
+      size = cell * 3;
+      originX = Math.floor((w - size) / 2);
+      originY = Math.floor((h - size) / 2);
       draw();
     }
 
-    if (mobileMode) {
-      // On touch devices: tap triggers random reseed instead of draw/erase
-      function reseedAndDraw(){ randomSeed(0.12); draw(); }
-      canvas.addEventListener('click', function(e){ e.preventDefault(); reseedAndDraw(); });
-      canvas.addEventListener('touchstart', function(e){ e.preventDefault(); reseedAndDraw(); }, {passive:false});
-      canvas.addEventListener('contextmenu', function(e){ e.preventDefault(); });
-    } else {
-      // Desktop: keep draw/erase interactions
-      canvas.addEventListener('mousemove', function(e){
-        hoverCell = canvasToCell(e);
-        if(drawing) plotAtCell(hoverCell);
-        else draw();
-      });
-
-      canvas.addEventListener('mousedown', function(e){
-        e.preventDefault();
-        drawing = true;
-        eraseMode = (e.button===2);
-        plotAtCell(canvasToCell(e));
-      });
-
-      window.addEventListener('mouseup', function(){ drawing=false; eraseMode=false; });
-      canvas.addEventListener('contextmenu', function(e){ e.preventDefault(); });
-
-      canvas.addEventListener('mouseenter', function(){ paused=true;  });
-      canvas.addEventListener('mouseleave', function(){ paused=false; hoverCell=null; draw(); });
+    function reset(){
+      for (let i=0;i<9;i++) board[i]=null;
+      over=false; winCells=null; draw();
     }
 
-    var ro = new ResizeObserver(function(){ setupByContainer(); });
-    ro.observe(canvas);
-  }
+    function draw(){
+      const vw = canvas.width / DPR, vh = canvas.height / DPR;
+      ctx.clearRect(0,0,vw,vh);
+      ctx.fillStyle = '#fff';
+      ctx.fillRect(0,0,vw,vh);
 
-  // Defer Life init: wait for images to load (window 'load'),
-  // or fallback to a short timeout if load is slow
-  function scheduleInitLife(){
-    var started = false;
-    function start(){
-      if (started) return; started = true;
-      var run = function(){
-        if (window.requestIdleCallback) {
-          requestIdleCallback(initLife, { timeout: 1200 });
-        } else {
-          setTimeout(initLife, 0);
+      ctx.save();
+      ctx.translate(originX, originY);
+
+      ctx.strokeStyle = '#E8ECF1';
+      ctx.lineWidth = Math.max(1, Math.round(cell*0.06));
+      for(let i=1;i<3;i++){
+        ctx.beginPath(); ctx.moveTo(i*cell, 0);     ctx.lineTo(i*cell, 3*cell); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(0,     i*cell); ctx.lineTo(3*cell, i*cell); ctx.stroke();
+      }
+
+      const lw = Math.max(2, Math.round(cell*0.12));
+      const pad = Math.round(cell*0.24);
+      ctx.lineCap='round'; ctx.lineJoin='round';
+      ctx.strokeStyle = '#111';
+      ctx.lineWidth = lw;
+      for(let k=0;k<9;k++){
+        const m = board[k]; if(!m) continue;
+        const r = (k/3)|0, c = k%3;
+        const x = c*cell, y = r*cell;
+        if(m==='X'){
+          ctx.beginPath(); ctx.moveTo(x+pad, y+pad); ctx.lineTo(x+cell-pad, y+cell-pad); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(x+cell-pad, y+pad); ctx.lineTo(x+pad, y+cell-pad); ctx.stroke();
+        }else{
+          ctx.beginPath(); ctx.arc(x+cell/2, y+cell/2, (cell/2 - pad), 0, Math.PI*2); ctx.stroke();
         }
-      };
-      // small grace period to ensure above-the-fold images paint
-      setTimeout(run, 150);
+      }
+
+      if (winCells && winCells.length === 3) {
+        const WIN = '#ff4d4f';
+        const t = Math.max(4, cell * 0.16);
+        const edgePad = Math.max(6, cell * 0.18);
+
+        const [a,,c] = winCells;
+        const ra = (a/3)|0, ca = a%3;
+        const rc = (c/3)|0, cc = c%3;
+
+        ctx.strokeStyle = WIN;
+        ctx.lineWidth = t;
+        ctx.lineCap = 'round';
+
+        ctx.beginPath();
+        if (ra === rc) {
+          const y = ra*cell + cell/2;
+          ctx.moveTo(edgePad, y);
+          ctx.lineTo(3*cell - edgePad, y);
+        } else if (ca === cc) {
+          const x = ca*cell + cell/2;
+          ctx.moveTo(x, edgePad);
+          ctx.lineTo(x, 3*cell - edgePad);
+        } else if (a===0 && c===8) {
+          ctx.moveTo(edgePad, edgePad);
+          ctx.lineTo(3*cell - edgePad, 3*cell - edgePad);
+        } else {
+          ctx.moveTo(3*cell - edgePad, edgePad);
+          ctx.lineTo(edgePad, 3*cell - edgePad);
+        }
+        ctx.stroke();
+      }
+
+      ctx.restore();
     }
 
-    // primary: after all assets (images/fonts) loaded
-    window.addEventListener('load', start);
-    // fallback: if 'load' takes too long, start anyway after 1.5s
-    setTimeout(start, 10000);
+    const LINES = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+    function winningLine(b){
+      for(const line of LINES){
+        const [a,b2,c] = line;
+        if(b[a] && b[a]===b[b2] && b[a]===b[c]) return line;
+      }
+      return null;
+    }
+    function result(b){
+      const line = winningLine(b);
+      if (line) return b[line[0]];
+      if (b.every(Boolean)) return 'draw';
+      return null;
+    }
+
+    function minimax(b, isMax){
+      const r = result(b);
+      if(r==='O') return  1;
+      if(r==='X') return -1;
+      if(r==='draw') return 0;
+      if(isMax){
+        let best=-2;
+        for(let i=0;i<9;i++) if(!b[i]){ b[i]='O'; best=Math.max(best, minimax(b,false)); b[i]=null; if(best===1) break; }
+        return best;
+      }else{
+        let best= 2;
+        for(let i=0;i<9;i++) if(!b[i]){ b[i]='X'; best=Math.min(best, minimax(b,true));  b[i]=null; if(best===-1) break; }
+        return best;
+      }
+    }
+    function bestMove(b){
+      let mv=null, best=-2;
+      for(let i=0;i<9;i++) if(!b[i]){ b[i]='O'; const s=minimax(b,false); b[i]=null; if(s>best){best=s; mv=i;} }
+      return mv;
+    }
+
+    function cellAt(e){
+      const rect = canvas.getBoundingClientRect();
+      const px = e.clientX - rect.left, py = e.clientY - rect.top;
+      const x = px - originX, y = py - originY;
+      if(x<0||y<0||x>=size||y>=size) return -1;
+      const c = (x/cell)|0, r = (y/cell)|0;
+      return r*3 + c;
+    }
+
+    function onPointerDown(e){
+      if(over) return;
+      const idx = cellAt(e); if(idx<0 || board[idx]) return;
+      board[idx]='X'; draw();
+      let r = result(board);
+      if(r){
+        over=true;
+        winCells = (r==='draw') ? null : winningLine(board);
+        draw();
+        return;
+      }
+      const mv = bestMove(board);
+      if(mv!=null){ board[mv]='O'; draw(); }
+      r = result(board);
+      if(r){
+        over=true;
+        winCells = (r==='draw') ? null : winningLine(board);
+        draw();
+      }
+    }
+
+    canvas.addEventListener('pointerdown', onPointerDown);
+    (canvas.parentElement||canvas).addEventListener('pointerleave', reset);
+
+    const ro = new ResizeObserver(fit); ro.observe(canvas);
+    fit();
   }
 
-  scheduleInitLife();
+  (function(){
+    const start = () => setTimeout(initLife, 0);
+    if (document.readyState === 'complete' || document.readyState === 'interactive') start();
+    else window.addEventListener('DOMContentLoaded', start);
+  })();
 })();
 </script>
 
