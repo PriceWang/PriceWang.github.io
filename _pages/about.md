@@ -92,7 +92,7 @@ His research interest includes self-/unsupervised learning for physiological tim
 <br/>
 <br/>
 <a href="https://www.easycounter.com/">
-<img src="https://www.easycounter.com/counter.php?valeyard"
+<img src="https://www.easycounter.com/counter.php?pricewang"
 border="0" alt="HTML Counter"></a>
-<i font size="3">unique visitors since Nov. 2023</i>
+<i font size="3">hits since Apr. 2024</i>
 </p>

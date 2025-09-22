@@ -11,7 +11,7 @@
 <div class='paper-box-text' markdown="1">
 ## **<font color=SteelBlue >ECG biometric authentication using self-supervised learning for IoT edge sensors</font>**
 <a href="https://doi.org/10.1109/JBHI.2024.3455803"><img src="https://img.shields.io/badge/DOI-10.1109%2FJBHI--2024--3455803-blue" alt="DOI"></a>
-<strong><span class='show_paper_citations' data='4FA6C0AAAAAJ:qjMakFHDy7sC'></span></strong>
+<strong><span class='show_paper_citations' data='yo7t7CIAAAAJ:2osOgNQ5qMEC'></span></strong>
 
 ---
 
@@ -30,6 +30,7 @@
 ## **<font color=SteelBlue >A task-generic high-performance unsupervised pre-training framework for ECG</font>**
 <a href="https://doi.org/10.1109/JSEN.2024.3404141">  <img src="https://img.shields.io/badge/DOI-10.1109%2FJSEN--2024--3404141-blue" alt="DOI"></a>
 <a href="https://github.com/PriceWang/MAECG"><img src="https://img.shields.io/github/stars/PriceWang/MAECG?style=social&label=Code+★" alt="code"></a>
+<strong><span class='show_paper_citations' data='yo7t7CIAAAAJ:9yKSN-GCB0IC'></span></strong>
 
 ---
 
