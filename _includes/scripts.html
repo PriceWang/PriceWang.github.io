@@ -1,4 +1,210 @@
 <script src="assets/js/main.min.js"></script>
 
+<script>
+(function(){
+  // add hover capability classes on <body> for robust control
+  function updateHoverClass(){
+    try{
+      var mqHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      var touchCap = (navigator.maxTouchPoints||0) > 0 || 'ontouchstart' in window;
+      var coarse = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+      var wideEnough = (window.innerWidth||0) >= 768;
+
+      // UA heuristics: deny-list common mobile browsers that sometimes misreport hover
+      var ua = (navigator.userAgent||'').toLowerCase();
+      var isIOS = /iphone|ipod|ipad/.test(ua) || (navigator.platform === 'MacIntel' && (navigator.maxTouchPoints||0) > 1);
+      var isAndroid = /android/.test(ua);
+      var isWeChat = /micromessenger/.test(ua);
+      var isQQ = /qqbrowser/.test(ua);
+      var isUC = /ucbrowser/.test(ua);
+      var isBaidu = /baidubrowser|baiduwap/.test(ua);
+      var isSogou = /sogoumobilebrowser/.test(ua);
+      var isMiui = /miuibrowser/.test(ua);
+      var isHuawei = /huaweibrowser/.test(ua);
+      var isVivo = /vivobrowser/.test(ua);
+      var isOppo = /oppobrowser/.test(ua);
+      var mobileDeny = isIOS || isAndroid && (isWeChat || isQQ || isUC || isBaidu || isSogou || isMiui || isHuawei || isVivo || isOppo);
+
+      // manual override via localStorage: set 'hoverMode' to 'force-on' or 'force-off'
+      var override = undefined;
+      try{ override = localStorage.getItem('hoverMode'); }catch(e){}
+
+      // hard stop on smaller screens regardless of MQ quirks
+      var hardSizeStop = (window.innerWidth||0) < 1024;
+
+      var canHover = mqHover && !touchCap && !coarse && wideEnough && !mobileDeny && !hardSizeStop;
+      if (override === 'force-on') canHover = true;
+      if (override === 'force-off') canHover = false;
+      document.body.classList.remove('can-hover','no-hover');
+      document.body.classList.add(canHover ? 'can-hover' : 'no-hover');
+    }catch(e){}
+  }
+  updateHoverClass();
+  window.addEventListener('resize', function(){
+    // debounce
+    clearTimeout(window.__hoverResizeTimer);
+    window.__hoverResizeTimer = setTimeout(updateHoverClass, 150);
+  });
+  function initLife(){
+    var canvas = document.getElementById('life-canvas');
+    if(!canvas) return;
+
+    var ctx = canvas.getContext('2d');
+    var DPR = Math.min(window.devicePixelRatio || 1, 2);
+    var cell = 8, interval = 140;
+    var cols, rows, grid, next, timer=null, paused=false;
+
+    function setupByContainer(){
+      var viewW = Math.floor(canvas.clientWidth);
+      var viewH = Math.floor(canvas.clientHeight);
+      if (!viewH || viewH < 120) viewH = 160;
+
+      canvas.width  = viewW * DPR;
+      canvas.height = viewH * DPR;
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+
+      cols = Math.max(5, Math.floor(viewW / cell));
+      rows = Math.max(5, Math.floor(viewH / cell));
+
+      grid = Array.from({length:rows},()=>Array(cols).fill(0));
+      next = Array.from({length:rows},()=>Array(cols).fill(0));
+      randomSeed(0.12); draw();
+    }
+
+    function randomSeed(p){
+      for(var r=0;r<rows;r++) for(var c=0;c<cols;c++)
+        grid[r][c] = Math.random() < p ? 1 : 0;
+    }
+
+    function neighbors(r,c){
+      var n=0;
+      for(var dr=-1;dr<=1;dr++){
+        for(var dc=-1;dc<=1;dc++){
+          if(dr===0 && dc===0) continue;
+          var rr=(r+dr+rows)%rows, cc=(c+dc+cols)%cols;
+          n+=grid[rr][cc];
+        }
+      }
+      return n;
+    }
+
+    function step(){
+      for(var r=0;r<rows;r++){
+        for(var c=0;c<cols;c++){
+          var n=neighbors(r,c), a=grid[r][c]===1;
+          next[r][c]=(a&&(n===2||n===3))||(!a&&n===3)?1:0;
+        }
+      }
+      var t=grid; grid=next; next=t;
+    }
+
+    var hoverCell = null;
+    function draw(){
+      var viewW = canvas.width / DPR, viewH = canvas.height / DPR;
+      ctx.clearRect(0,0,viewW,viewH);
+      ctx.fillStyle='#F7FAFD';
+      ctx.fillRect(0,0,viewW,viewH);
+
+      ctx.fillStyle='#4F7EA3';
+      for(var r=0;r<rows;r++){
+        for(var c=0;c<cols;c++){
+          if(grid[r][c]) ctx.fillRect(c*cell+1, r*cell+1, cell-2, cell-2);
+        }
+      }
+
+      if(hoverCell){
+        ctx.strokeStyle = 'rgba(79,126,163,.55)';
+        ctx.lineWidth = 1;
+        ctx.strokeRect(hoverCell.cx*cell+0.5, hoverCell.cy*cell+0.5, cell-1, cell-1);
+      }
+    }
+
+    function startLoop(){
+      if(timer) clearInterval(timer);
+      timer=setInterval(function(){ if(!paused){ step(); draw(); } }, interval);
+    }
+
+    setupByContainer();
+    startLoop();
+
+    var drawing=false, eraseMode=false;
+    var mobileMode = document.body.classList.contains('no-hover');
+
+    function canvasToCell(e){
+      var rect = canvas.getBoundingClientRect();
+      var x = (e.clientX - rect.left) / rect.width  * (canvas.width  / DPR);
+      var y = (e.clientY - rect.top ) / rect.height * (canvas.height / DPR);
+      var cx = Math.max(0, Math.min(cols-1, Math.floor(x / cell)));
+      var cy = Math.max(0, Math.min(rows-1, Math.floor(y / cell)));
+      return {cx, cy};
+    }
+
+    function plotAtCell(p){
+      if(eraseMode){ grid[p.cy][p.cx] = 0; }
+      else { grid[p.cy][p.cx] = 1; }
+      draw();
+    }
+
+    if (mobileMode) {
+      // On touch devices: tap triggers random reseed instead of draw/erase
+      function reseedAndDraw(){ randomSeed(0.12); draw(); }
+      canvas.addEventListener('click', function(e){ e.preventDefault(); reseedAndDraw(); });
+      canvas.addEventListener('touchstart', function(e){ e.preventDefault(); reseedAndDraw(); }, {passive:false});
+      canvas.addEventListener('contextmenu', function(e){ e.preventDefault(); });
+    } else {
+      // Desktop: keep draw/erase interactions
+      canvas.addEventListener('mousemove', function(e){
+        hoverCell = canvasToCell(e);
+        if(drawing) plotAtCell(hoverCell);
+        else draw();
+      });
+
+      canvas.addEventListener('mousedown', function(e){
+        e.preventDefault();
+        drawing = true;
+        eraseMode = (e.button===2);
+        plotAtCell(canvasToCell(e));
+      });
+
+      window.addEventListener('mouseup', function(){ drawing=false; eraseMode=false; });
+      canvas.addEventListener('contextmenu', function(e){ e.preventDefault(); });
+
+      canvas.addEventListener('mouseenter', function(){ paused=true;  });
+      canvas.addEventListener('mouseleave', function(){ paused=false; hoverCell=null; draw(); });
+    }
+
+    var ro = new ResizeObserver(function(){ setupByContainer(); });
+    ro.observe(canvas);
+  }
+
+  // Defer Life init: wait for images to load (window 'load'),
+  // or fallback to a short timeout if load is slow
+  function scheduleInitLife(){
+    var started = false;
+    function start(){
+      if (started) return; started = true;
+      var run = function(){
+        if (window.requestIdleCallback) {
+          requestIdleCallback(initLife, { timeout: 1200 });
+        } else {
+          setTimeout(initLife, 0);
+        }
+      };
+      // small grace period to ensure above-the-fold images paint
+      setTimeout(run, 150);
+    }
+
+    // primary: after all assets (images/fonts) loaded
+    window.addEventListener('load', start);
+    // fallback: if 'load' takes too long, start anyway after 1.5s
+    setTimeout(start, 10000);
+  }
+
+  scheduleInitLife();
+})();
+</script>
+
 {% include analytics.html %}
 {% include fetch_google_scholar_stats.html %}
+
+
