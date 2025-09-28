@@ -28,14 +28,15 @@ His research interest includes self-/unsupervised learning for physiological tim
 <title>Events</title>
 <div class="bottom_box">
   <ul class="events">
-    <li data-date="07/2025"> - One paper accepted by <i>ICCV 2025 Findings</i>. </li>
+    <li data-date="09/2025"> - Obtained a new <a href='https://huggingface.co/datasets/agents-course/final-certificates/resolve/main/certificates/PriceWang/2025-09-25.png'>certification</a>: <i>Hugging Face Agents Course</i>. </li>
     <li data-date="12/2024"> - Complete PhD program. </li>
-    <li data-date="09/2024"> - One paper accepted by <i>IEEE Journal of Biomedical and Health Informatics</i>. </li>
+    <li data-date="09/2024"> - One <a href='https://ieeexplore.ieee.org/abstract/document/10669223/'>paper</a> accepted by <i>IEEE Journal of Biomedical and Health Informatics</i>. </li>
     <li data-date="06/2024"> - Start a new position as Postdoc at University College Dublin. </li>
-    <li data-date="05/2024"> - One paper accepted by <i>IEEE Sensors Journal</i>. </li>
-    <li data-date="10/2023"> - One paper accepted by <i>2023 IEEE Biomedical Circuits and Systems Conference</i>. </li>
-    <li data-date="03/2021"> - One paper accepted by <i>2021 IEEE International Symposium on Circuits and Systems</i>. </li>
-    <li data-date="09/2020"> - One paper accepted by <i>2020 IEEE International Conference on Integrated Circuits, Technologies and Applications</i>. </li>
+    <li data-date="05/2024"> - One <a href='https://ieeexplore.ieee.org/abstract/document/10541906/'>paper</a> accepted by <i>IEEE Sensors Journal</i>. </li>
+    <li data-date="10/2023"> - One <a href='https://ieeexplore.ieee.org/abstract/document/10388636/'>paper</a> accepted by <i>2023 IEEE Biomedical Circuits and Systems Conference</i>. </li>
+    <li data-date="03/2021"> - One <a href='https://ieeexplore.ieee.org/abstract/document/9401741/'>paper</a> accepted by <i>2021 IEEE International Symposium on Circuits and Systems</i>. </li>
+    <li data-date="09/2020"> - One <a href='https://ieeexplore.ieee.org/abstract/document/9332012/'>paper</a> accepted by <i>2020 IEEE International Conference on Integrated Circuits, Technologies and Applications</i>. </li>
+    <li data-date="12/2019"> - Obtained a new <a href='https://www.coursera.org/account/accomplishments/specialization/XK69QTLWMM6K'>certification</a>: <i>Deep Learning Specialization</i>. </li>
   </ul>
 </div>
 
