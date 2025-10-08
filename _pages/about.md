@@ -28,15 +28,17 @@ His research interest includes self-/unsupervised learning for physiological tim
 <title>Events</title>
 <div class="bottom_box">
   <ul class="events">
-    <li data-date="09/2025"> - Obtained a new <a href='https://huggingface.co/datasets/agents-course/final-certificates/resolve/main/certificates/PriceWang/2025-09-25.png'>certification</a>: <i>Hugging Face Agents Course</i>. </li>
-    <li data-date="12/2024"> - Complete PhD program. </li>
-    <li data-date="09/2024"> - One <a href='https://ieeexplore.ieee.org/abstract/document/10669223/'>paper</a> accepted by <i>IEEE Journal of Biomedical and Health Informatics</i>. </li>
-    <li data-date="06/2024"> - Start a new position as Postdoc at University College Dublin. </li>
-    <li data-date="05/2024"> - One <a href='https://ieeexplore.ieee.org/abstract/document/10541906/'>paper</a> accepted by <i>IEEE Sensors Journal</i>. </li>
-    <li data-date="10/2023"> - One <a href='https://ieeexplore.ieee.org/abstract/document/10388636/'>paper</a> accepted by <i>2023 IEEE Biomedical Circuits and Systems Conference</i>. </li>
-    <li data-date="03/2021"> - One <a href='https://ieeexplore.ieee.org/abstract/document/9401741/'>paper</a> accepted by <i>2021 IEEE International Symposium on Circuits and Systems</i>. </li>
-    <li data-date="09/2020"> - One <a href='https://ieeexplore.ieee.org/abstract/document/9332012/'>paper</a> accepted by <i>2020 IEEE International Conference on Integrated Circuits, Technologies and Applications</i>. </li>
-    <li data-date="12/2019"> - Obtained a new <a href='https://www.coursera.org/account/accomplishments/specialization/XK69QTLWMM6K'>certification</a>: <i>Deep Learning Specialization</i>. </li>
+    <li data-date="10/2025"> - Obtain a new certification: <i><a href='https://catalog-education.oracle.com/pls/certview/sharebadge?id=D1AC30496B8C354B2B97469AFBE23D1D21CA07DE13A0571490C4D4414F1B25C8'>Oracle Cloud Infrastructure 2025 Certified Generative AI Professional</a></i>. </li>
+    <li data-date="10/2025"> - Obtain a new certification: <i><a href='https://www.coursera.org/account/accomplishments/professional-cert/certificate/24N394MQFZ09'>Google Advanced Data Analytics</a></i>. </li>
+    <li data-date="10/2025"> - Obtain a new certification: <i><a href='https://www.coursera.org/account/accomplishments/professional-cert/certificate/2CKUJW2AAZFK'>Google IT Automation with Python</a></i>. </li>
+    <li data-date="09/2025"> - Obtain a new certification: <i><a href='https://huggingface.co/datasets/agents-course/final-certificates/resolve/main/certificates/PriceWang/2025-09-25.png'>Hugging Face Agents Course</a></i>. </li>
+    <li data-date="09/2024"> - Publish a new paper: <i><a href='https://ieeexplore.ieee.org/abstract/document/10669223/'>ECG biometric authentication using self-supervised learning for IoT edge sensors</a></i>. </li>
+    <li data-date="06/2024"> - Start a new position: Postdoc at University College Dublin. </li>
+    <li data-date="05/2024"> - Publish a new paper: <i><a href='https://ieeexplore.ieee.org/abstract/document/10541906/'>A task-generic high-performance unsupervised pre-training framework for ECG</a></i>. </li>
+    <li data-date="10/2023"> - Publish a new paper: <i><a href='https://ieeexplore.ieee.org/abstract/document/10388636/'>Unsupervised pre-training using masked autoencoders for ecg analysis</a></i>. </li>
+    <li data-date="03/2021"> - Publish a new paper: <i><a href='https://ieeexplore.ieee.org/abstract/document/9401741/'>Continuous user authentication using iot wearable sensors</a></i>. </li>
+    <li data-date="09/2020"> - Publish a new paper: <i><a href='https://ieeexplore.ieee.org/abstract/document/9332012/'>Low complexity ecg biometric authentication for iot edge devices</a></i>. </li>
+    <li data-date="12/2019"> - Obtained a new certification: <i><a href='https://www.coursera.org/account/accomplishments/specialization/certificate/XK69QTLWMM6K'>Deep Learning Specialization</a></i>. </li>
   </ul>
 </div>
 
