@@ -28,6 +28,7 @@ His research interest includes self-/unsupervised learning for physiological tim
 <title>Events</title>
 <div class="bottom_box">
   <ul class="events">
+    <li data-date="10/2025"> - Obtain a new certification: <i><a href='https://catalog-education.oracle.com/pls/certview/sharebadge?id=F7E62ECE7EDCB12733A43D57A256FC0BC39828F2737B9FCC7B20DF491682D955'>Oracle AI Vector Search Certified Professional</a></i>. </li>
     <li data-date="10/2025"> - Obtain a new certification: <i><a href='https://catalog-education.oracle.com/pls/certview/sharebadge?id=D1AC30496B8C354B2B97469AFBE23D1D21CA07DE13A0571490C4D4414F1B25C8'>Oracle Cloud Infrastructure 2025 Certified Generative AI Professional</a></i>. </li>
     <li data-date="10/2025"> - Obtain a new certification: <i><a href='https://www.coursera.org/account/accomplishments/professional-cert/certificate/24N394MQFZ09'>Google Advanced Data Analytics</a></i>. </li>
     <li data-date="10/2025"> - Obtain a new certification: <i><a href='https://www.coursera.org/account/accomplishments/professional-cert/certificate/2CKUJW2AAZFK'>Google IT Automation with Python</a></i>. </li>
