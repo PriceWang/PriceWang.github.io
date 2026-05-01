@@ -27,7 +27,7 @@ Guoxin Wang is a Research Fellow at Trinity College Dublin. His research interes
 <div class="bottom_box">
   <ul class="events">
     <li data-date="03/2026"> - New paper accepted: <i><a href=''>MoCrop: Training Free Motion Guided Cropping for Efficient Video Action Recognition</a></i>. </li>
-    <li data-date="01/2026"> - New paper accepted: <i><a href=''>TinyDrop: Tiny Model Guided Token Dropping for Vision Transformers</a></i>. </li>
+    <li data-date="01/2026"> - New paper accepted: <i><a href='https://ieeexplore.ieee.org/abstract/document/11464424'>TinyDrop: Tiny Model Guided Token Dropping for Vision Transformers</a></i>. </li>
     <li data-date="12/2025"> - New paper accepted: <i><a href='https://ieeexplore.ieee.org/abstract/document/11426826/'>Dynamic Model Mixtures for Efficient AI Inference in Real-Time Biomedical Applications</a></i>. </li>
     <li data-date="11/2025"> - Start a new position: Research Fellow at Trinity College Dublin. </li>
     <li data-date="10/2025"> - Obtain a new certification: <i><a href='https://catalog-education.oracle.com/pls/certview/sharebadge?id=F7E62ECE7EDCB12733A43D57A256FC0BC39828F2737B9FCC7B20DF491682D955'>Oracle AI Vector Search Certified Professional</a></i>. </li>
