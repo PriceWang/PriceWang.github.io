@@ -2,7 +2,7 @@
  * @Author: Guoxin Wang
  * @Date: 2025-09-21 17:27:40
  * @LastEditors: Guoxin Wang
- * @LastEditTime: 2026-05-01 14:46:21
+ * @LastEditTime: 2026-06-22 17:14:27
  * @FilePath: /PriceWang.github.io/_pages/pubs.md
  * @Description: 
  * 
@@ -16,7 +16,7 @@
 <div class='paper-box-image'><div><div class="badge">IEEE Transactions on Instrumentation and Measurement
 </div>
 <a href="https://doi.org/10.1109/TIM.2026.3657491">
-<img src='https://ieeexplore.ieee.org/mediastore/IEEE/content/media/19/11329398/11426826/wang1-3657491-large.gif' alt="sym" width="100%" title="">
+<img src='https://github.com/PriceWang/DMMECG/blob/main/assets/img.jpg?raw=true' alt="sym" width="100%" title="">
 </a>  
 </div></div>
 <div class='paper-box-text' markdown="1">
@@ -35,7 +35,7 @@
 <div class='paper-box'>
 <div class='paper-box-image'><div><div class="badge">IEEE Sensors Journal</div>
 <a href="https://doi.org/10.1109/JSEN.2024.3404141">
-<img src='https://ieeexplore.ieee.org/ielx7/7361/10577556/10541906/graphical_abstract/jsen-gagraphic-3404141.jpg' alt="sym" width="100%" title="">
+<img src='https://github.com/PriceWang/MAECG/blob/main/assets/img.png?raw=true' alt="sym" width="100%" title="">
 </a>  
 </div></div>
 <div class='paper-box-text' markdown="1">

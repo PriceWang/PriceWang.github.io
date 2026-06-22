@@ -26,6 +26,7 @@ Guoxin Wang is a Research Fellow at Trinity College Dublin. His research interes
 <title>Events</title>
 <div class="bottom_box">
   <ul class="events">
+    <li data-date="06/2026"> - New paper accepted: <i><a href='https://ieeexplore.ieee.org/abstract/document/11556209'>Neural Architecture Search-Based ECG Classification for Low-Power Edge Deployment in IoT Healthcare Systems</a></i>. </li>
     <li data-date="03/2026"> - New paper accepted: <i><a href=''>MoCrop: Training Free Motion Guided Cropping for Efficient Video Action Recognition</a></i>. </li>
     <li data-date="01/2026"> - New paper accepted: <i><a href='https://ieeexplore.ieee.org/abstract/document/11464424'>TinyDrop: Tiny Model Guided Token Dropping for Vision Transformers</a></i>. </li>
     <li data-date="12/2025"> - New paper accepted: <i><a href='https://ieeexplore.ieee.org/abstract/document/11426826/'>Dynamic Model Mixtures for Efficient AI Inference in Real-Time Biomedical Applications</a></i>. </li>
