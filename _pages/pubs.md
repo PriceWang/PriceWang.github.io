@@ -2,7 +2,7 @@
  * @Author: Guoxin Wang
  * @Date: 2025-09-21 17:27:40
  * @LastEditors: Guoxin Wang
- * @LastEditTime: 2026-06-22 17:14:27
+ * @LastEditTime: 2026-09-30 14:09:05
  * @FilePath: /PriceWang.github.io/_pages/pubs.md
  * @Description: 
  * 
@@ -73,6 +73,22 @@
 
   <li class="pub-item">
     <div class="pub-left">
+      <span class="venue-tag">EMNLP 2026</span>
+    </div>
+    <div class="pub-right">
+      <span class="pub-title">
+        <a href="">
+          SparseAlign-OOC: Auditing News Image-Text Out-of-Context Detection with Sparse Autoencoders
+        </a>
+      </span>
+      <span class="pub-authors">
+        <strong>G Wang</strong>, J Liu, S Chen
+      </span>
+    </div>
+  </li>
+
+  <li class="pub-item">
+    <div class="pub-left">
       <span class="venue-tag">ICASSP 2026</span>
     </div>
     <div class="pub-right">
@@ -99,22 +115,6 @@
       </span>
       <span class="pub-authors">
         <strong>G Wang</strong>, Q Wang, GN Iyer, A Nag, D John
-      </span>
-    </div>
-  </li>
-
-  <li class="pub-item">
-    <div class="pub-left">
-      <span class="venue-tag">ICTA 2020</span>
-    </div>
-    <div class="pub-right">
-      <span class="pub-title">
-        <a href="https://doi.org/10.1109/ICTA50426.2020.9332012">
-          Low complexity ecg biometric authentication for iot edge devices
-        </a>
-      </span>
-      <span class="pub-authors">
-        <strong>G Wang</strong>, D John, A Nag
       </span>
     </div>
   </li>
