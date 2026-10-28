@@ -26,24 +26,26 @@ Guoxin Wang is a Research Fellow at Trinity College Dublin. His research interes
 <title>Events</title>
 <div class="bottom_box">
   <ul class="events">
-    <li data-date="09/2026"> - New paper accepted: <i><a href=''>Differential Transfer Lenses: What Behavioural Contrasts Miss in the Residual Stream</a></i>. </li>
-    <li data-date="08/2026"> - New paper accepted: <i><a href=''>SparseAlign-OOC: Auditing News Image-Text Out-of-Context Detection with Sparse Autoencoders</a></i>. </li>
+    <li data-date="10/2026"> - New paper accepted: <i><a href=''>Differential Transfer Lenses: What Behavioural Contrasts Miss in the Residual Stream</a></i>. </li>
+    <li data-date="10/2026"> - New paper accepted: <i><a href='https://aclanthology.org/2026.findings-emnlp.291'>SparseAlign-OOC: Auditing News Image-Text Out-of-Context Detection with Sparse Autoencoders</a></i>. </li>
+    <li data-date="09/2026"> - New paper accepted: <i><a href='https://ieeexplore.ieee.org/abstract/document/11685406'>Optimal brain connection: Towards efficient structural pruning</a></i>. </li>
+    <li data-date="06/2026"> - New paper accepted: <i><a href='https://ieeexplore.ieee.org/abstract/document/11728465'>MoCrop: Training Free Motion Guided Cropping for Efficient Video Action Recognition</a></i>. </li>
     <li data-date="06/2026"> - New paper accepted: <i><a href='https://ieeexplore.ieee.org/abstract/document/11556209'>Neural Architecture Search-Based ECG Classification for Low-Power Edge Deployment in IoT Healthcare Systems</a></i>. </li>
-    <li data-date="03/2026"> - New paper accepted: <i><a href=''>MoCrop: Training Free Motion Guided Cropping for Efficient Video Action Recognition</a></i>. </li>
     <li data-date="01/2026"> - New paper accepted: <i><a href='https://ieeexplore.ieee.org/abstract/document/11464424'>TinyDrop: Tiny Model Guided Token Dropping for Vision Transformers</a></i>. </li>
-    <li data-date="12/2025"> - New paper accepted: <i><a href='https://ieeexplore.ieee.org/abstract/document/11426826/'>Dynamic Model Mixtures for Efficient AI Inference in Real-Time Biomedical Applications</a></i>. </li>
+    <li data-date="12/2025"> - New paper accepted: <i><a href='https://ieeexplore.ieee.org/abstract/document/11426826'>Dynamic Model Mixtures for Efficient AI Inference in Real-Time Biomedical Applications</a></i>. </li>
     <li data-date="11/2025"> - Start a new position: Research Fellow at Trinity College Dublin. </li>
     <li data-date="10/2025"> - Obtain a new certification: <i><a href='https://catalog-education.oracle.com/pls/certview/sharebadge?id=F7E62ECE7EDCB12733A43D57A256FC0BC39828F2737B9FCC7B20DF491682D955'>Oracle AI Vector Search Certified Professional</a></i>. </li>
     <li data-date="10/2025"> - Obtain a new certification: <i><a href='https://catalog-education.oracle.com/pls/certview/sharebadge?id=D1AC30496B8C354B2B97469AFBE23D1D21CA07DE13A0571490C4D4414F1B25C8'>Oracle Cloud Infrastructure 2025 Certified Generative AI Professional</a></i>. </li>
+    <li data-date="10/2025"> - New paper accepted: <i><a href='https://openaccess.thecvf.com/content/ICCV2025W/Findings/html/Wang_ORXE_Orchestrating_Experts_for_Dynamically_Configurable_Efficiency_ICCVW_2025_paper.html'>ORXE: Orchestrating Experts for Dynamically Configurable Efficiency</a></i>. </li>
     <li data-date="10/2025"> - Obtain a new certification: <i><a href='https://www.coursera.org/account/accomplishments/professional-cert/certificate/24N394MQFZ09'>Google Advanced Data Analytics</a></i>. </li>
     <li data-date="10/2025"> - Obtain a new certification: <i><a href='https://www.coursera.org/account/accomplishments/professional-cert/certificate/2CKUJW2AAZFK'>Google IT Automation with Python</a></i>. </li>
     <li data-date="09/2025"> - Obtain a new certification: <i><a href='https://huggingface.co/datasets/agents-course/final-certificates/resolve/main/certificates/PriceWang/2025-09-25.png'>Hugging Face Agents Course</a></i>. </li>
-    <li data-date="09/2024"> - New paper accepted: <i><a href='https://ieeexplore.ieee.org/abstract/document/10669223/'>ECG biometric authentication using self-supervised learning for IoT edge sensors</a></i>. </li>
+    <li data-date="09/2024"> - New paper accepted: <i><a href='https://ieeexplore.ieee.org/abstract/document/10669223'>ECG biometric authentication using self-supervised learning for IoT edge sensors</a></i>. </li>
     <li data-date="06/2024"> - Start a new position: Postdoc at University College Dublin. </li>
-    <li data-date="05/2024"> - New paper accepted: <i><a href='https://ieeexplore.ieee.org/abstract/document/10541906/'>A task-generic high-performance unsupervised pre-training framework for ECG</a></i>. </li>
-    <li data-date="10/2023"> - New paper accepted: <i><a href='https://ieeexplore.ieee.org/abstract/document/10388636/'>Unsupervised pre-training using masked autoencoders for ecg analysis</a></i>. </li>
-    <li data-date="03/2021"> - New paper accepted: <i><a href='https://ieeexplore.ieee.org/abstract/document/9401741/'>Continuous user authentication using iot wearable sensors</a></i>. </li>
-    <li data-date="09/2020"> - New paper accepted: <i><a href='https://ieeexplore.ieee.org/abstract/document/9332012/'>Low complexity ecg biometric authentication for iot edge devices</a></i>. </li>
+    <li data-date="05/2024"> - New paper accepted: <i><a href='https://ieeexplore.ieee.org/abstract/document/10541906'>A task-generic high-performance unsupervised pre-training framework for ECG</a></i>. </li>
+    <li data-date="10/2023"> - New paper accepted: <i><a href='https://ieeexplore.ieee.org/abstract/document/10388636'>Unsupervised pre-training using masked autoencoders for ecg analysis</a></i>. </li>
+    <li data-date="03/2021"> - New paper accepted: <i><a href='https://ieeexplore.ieee.org/abstract/document/9401741'>Continuous user authentication using iot wearable sensors</a></i>. </li>
+    <li data-date="09/2020"> - New paper accepted: <i><a href='https://ieeexplore.ieee.org/abstract/document/9332012'>Low complexity ecg biometric authentication for iot edge devices</a></i>. </li>
     <li data-date="12/2019"> - Obtained a new certification: <i><a href='https://www.coursera.org/account/accomplishments/specialization/certificate/XK69QTLWMM6K'>Deep Learning Specialization</a></i>. </li>
   </ul>
 </div>
